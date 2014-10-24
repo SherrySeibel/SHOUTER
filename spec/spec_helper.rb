@@ -1,5 +1,3 @@
-require "capybara/rspec"
-
 RSpec.configure do |config|
 =begin
   config.filter_run :focus
