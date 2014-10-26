@@ -2,11 +2,7 @@ require "rails_helper"
 
 feature "User signs out" do
   scenario "and is redirected to landing page" do
-    user = create(:user)
-
-    sign_in(user)
-
-    visit homes_path
+    when_signed_in
 
     click_on "Sign out?"
 

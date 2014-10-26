@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Shouter</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Shouter</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<h1><%= link_to "SHOUTER", root_path %></h1>
+    <h1><%= link_to "SHOUTER", root_path %></h1>
 
-<% if signed_in? %>
-  <p>You are currently signed in as <%= current_user.username %>. <%= link_to "Sign out?", session_path, method: :delete %></p>
-<% end %>
+    <% if signed_in? %>
+      <p>You are currently signed in as <%= current_user.username %>. <%= link_to "Sign out?", session_path, method: :delete %></p>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>

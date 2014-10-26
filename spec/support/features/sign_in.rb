@@ -5,4 +5,12 @@ module Features
     fill_in "Password", with: "password"
     click_on "Sign in"
   end
+
+  def when_signed_in
+    user = create(:user)
+
+    sign_in(user)
+
+    visit homes_path
+  end
 end
