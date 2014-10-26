@@ -1,0 +1,6 @@
+<%= div_for shout do %>
+  <%= shout.user.username %>
+  shouted
+  <%= shout.body %>
+  <%= time_ago_in_words(shout.created_at) %> ago
+<% end %>

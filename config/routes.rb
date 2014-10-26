@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   constraints Monban::Constraints::SignedIn.new do
     get "/", to: "homes#show", as: :homes
     resource :users, only: :show
-    resources :shouts, only: :create
+    resources :shouts, only: [:create]
   end
 
   root to: "sessions#new", via: :get
