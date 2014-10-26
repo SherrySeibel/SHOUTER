@@ -12,4 +12,16 @@ feature "User submits a shout" do
     expect(page).to have_content "HI!"
     expect(page).to have_css ".shout, #shout_1"
   end
+
+  scenario "and clicks on time of creation" do
+    shout = create(:shout)
+
+    click_on shout.created_at
+  end
+
+  scenario "and clicks on a username" do
+    shout = create(:shout)
+
+    click_on shout.user.username
+  end
 end
