@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User submits a valid shout" do
+feature "User submits a valid text shout" do
   before :each do
     when_signed_in
 
@@ -14,7 +14,7 @@ feature "User submits a valid shout" do
   end
 
   scenario "and clicks on time of creation" do
-    shout = create(:shout)
+    text_shout = create(:text_shout)
 
     click_on "less than a minute"
 
@@ -22,16 +22,16 @@ feature "User submits a valid shout" do
   end
 
   scenario "and clicks on a username" do
-    shout = create(:shout, user: User.first)
+    text_shout = create(:text_shout)
 
-    click_on shout.user.username
+    click_on User.first.username
 
     expect(page).to have_css "h2", text: User.first.username
     expect(page).to have_content "HI!"
   end
 end
 
-feature "User submmits an invalid shout" do
+feature "User submmits an invalid text shout" do
   scenario "and sees a flash notice" do
   when_signed_in
 

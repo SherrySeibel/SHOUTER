@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026001843) do
+ActiveRecord::Schema.define(version: 20141027204532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "shouts", force: true do |t|
-    t.string   "body",       null: false
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",      null: false
+    t.string   "content_type", null: false
+    t.integer  "content_id",   null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
+  add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id", using: :btree
   add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree
+
+  create_table "text_shouts", force: true do |t|
+    t.string "body", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
@@ -33,7 +39,6 @@ ActiveRecord::Schema.define(version: 20141026001843) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

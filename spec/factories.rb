@@ -7,6 +7,9 @@ FactoryGirl.define do
 
   factory :shout do
     user
-    body "MyString"
+  end
+
+  factory :text_shout do
+    body "shout"
   end
 end
