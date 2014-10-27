@@ -19,6 +19,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "capybara", "~> 2.3.0"
   gem "pry-rails"
+  gem "launchy"
 end
 
 group :test do

@@ -2,5 +2,6 @@
   <%= link_to shout.user.username, shout.user %>
   shouted
   <%= shout.body %>
-  <%= link_to time_ago_in_words(shout.created_at), shout %> ago
+  <%= link_to time_ago_in_words(shout.created_at), shout %>
+  ago
 <% end %>
