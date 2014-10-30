@@ -3,4 +3,9 @@
   <%= form.submit "SHOUT!" %>
 <% end %>
 
+<%= form_for @photo_shout do |form| %>
+  <%= form.file_field :image %>
+  <%= form.submit "SHARE!"%>
+<% end %>
+
 <%= render @shouts %>
