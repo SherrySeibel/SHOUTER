@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
   def following? other_user
     followed_user_ids.include? other_user.id
   end
+
+  def can_follow? user
+    self != user
+  end
 end
