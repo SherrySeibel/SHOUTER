@@ -1,7 +1,5 @@
 class HomesController < ApplicationController
   def show
-    @text_shout = TextShout.new
-    @photo_shout = PhotoShout.new
-    @shouts = current_user.shouts
+    @home = Home.new(current_user)
   end
 end
