@@ -1,11 +1,11 @@
-<%= form_for @text_shout do |form| %>
+<%= form_for @home.new_text_shout do |form| %>
   <%= form.text_field :body, placeholder: "Shout something!" %>
   <%= form.submit "SHOUT!" %>
 <% end %>
 
-<%= form_for @photo_shout do |form| %>
+<%= form_for @home.new_photo_shout do |form| %>
   <%= form.file_field :image %>
   <%= form.submit "SHARE!"%>
 <% end %>
 
-<%= render @shouts %>
+<%= render @home.timeline %>
