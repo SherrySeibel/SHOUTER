@@ -16,6 +16,6 @@
 /tmp
 
 # Images
-app/assets/images/shouter.png
+app/assets/images/
 
 public/system/photo_shouts/
