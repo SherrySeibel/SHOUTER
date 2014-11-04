@@ -1,16 +1,9 @@
 <%= div_for shout do %>
-  <%= gravatar shout.user %>
-  <%= link_to shout.user.username, shout.user %> shouted
-
-  <div>
-    <%= render shout.content %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= gravatar shout.user %>
+    </div>
+    <strong><%= link_to shout.user.username, shout.user %></strong> <%= link_to time_ago_in_words(shout.created_at), shout %>
+    <p> <%= render shout.content %> </p>
   </div>
-
-  <%= link_to time_ago_in_words(shout.created_at), shout %> ago
-
- <div>
-  <% if current_user.owns? shout %>
-    <%= link_to "Edit", edit_polymorphic_path(shout.content) %>
-  <% end %>
- </div>
 <% end %>
