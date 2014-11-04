@@ -1,6 +1,7 @@
-FactoryGirl.define do  factory :following_relationship, :class => 'FollowingRelationships' do
+FactoryGirl.define do
+  factory :following_relationship, :class => 'FollowingRelationships' do
     folllowed_user nil
-follower nil
+    follower nil
   end
   factory :photo_shout do
     image ""
