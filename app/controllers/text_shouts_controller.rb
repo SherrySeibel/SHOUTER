@@ -25,6 +25,12 @@ class TextShoutsController < ApplicationController
     end
   end
 
+  def destroy
+    text_shout = TextShout.find(params[:id])
+    text_shout.destroy
+    redirect_to homes_path
+  end
+
   private
 
   def text_shout_params

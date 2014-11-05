@@ -11,6 +11,10 @@ class Home
     PhotoShout.new
   end
 
+  def all_shouts
+    Shout.all
+  end
+
   def timeline
     Timeline.new(@user)
   end

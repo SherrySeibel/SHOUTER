@@ -1,4 +1,6 @@
 class Shout < ActiveRecord::Base
+  validates_associated :content
+
   belongs_to :user
   belongs_to :content, polymorphic: true
 
