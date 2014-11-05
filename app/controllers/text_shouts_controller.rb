@@ -11,6 +11,20 @@ class TextShoutsController < ApplicationController
     end
   end
 
+  def edit
+    @text_shout = TextShout.find(params[:id])
+  end
+
+  def update
+    text_shout = TextShout.find(params[:id])
+
+    if text_shout.update(text_shout_params)
+      redirect_to homes_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def text_shout_params

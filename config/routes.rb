@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resource :following_relationships, only: [:create, :destroy]
     end
     resources :shouts, only: :show
-    resources :text_shouts, only: :create
+    resources :text_shouts, only: [:create, :edit, :update]
     resources :photo_shouts, only: :create
     resources :hashtags, only: :show
   end
