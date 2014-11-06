@@ -11,13 +11,31 @@ class PhotoShoutsController < ApplicationController
     end
   end
 
+  def edit
+    @photo_shout = PhotoShout.find(params[:id])
+  end
+
+  def update
+    photo_shout = PhotoShout.find(params[:id])
+
+    if photo_shout.update(photo_shout_params)
+      redirect_to homes_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    photo_shout = PhotoShout.find(params[:id])
+    photo_shout.destroy
+    redirect_to homes_path
+  end
+
   private
 
   def photo_shout_params
-    if params[:image]
-      params.require(:photo_shout).permit(
-        :image,
-      )
-    end
+    params.require(:photo_shout).permit(
+      :image,
+    )
   end
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     resources :shouts, only: :show
     resources :text_shouts, only: [:create, :edit, :update, :destroy]
-    resources :photo_shouts, only: :create
+    resources :photo_shouts, only: [:create, :edit, :update, :destroy]
     resources :hashtags, only: :show
   end
 
