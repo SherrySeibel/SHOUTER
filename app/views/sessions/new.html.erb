@@ -1,17 +1,12 @@
 <%= form_for :session, url: session_path do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+  <div class="jumbotron col-md-5">
+    <p><%= form.label :email %></p>
+    <p><%= form.email_field :email %></p>
+    <p><%= form.label :password %></p>
+    <p><%= form.password_field :password %></p>
+    <div>
+      <%= form.submit "Sign in", class: "btn btn-primary btn-lg" %>
+      <h4>Don't have an account? <strong><%= link_to "Sign Up", [:new, :user] %></strong></h4>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div>
-    <%= form.submit "Sign in" %>
-  </div>
-
-  <p>Don't have an account? <%= link_to "Sign Up", [:new, :user] %>!</p>
 <% end %>
