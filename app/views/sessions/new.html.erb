@@ -1,21 +1,12 @@
 <%= form_for :session, url: session_path do |form| %>
-  <div class="panel panel-primary">
-
-    <div class="panel-heading">
-      <h3 class="panel-title">Sign In</h3>
-    </div>
-
-    <p>Don't have an account? <%= link_to "Sign Up", [:new, :user] %>!</p>
-
-    <%= form.label :email %>
-    <p><%= form.email_field :email %> </p>
-
-    <%= form.label :password %>
-    <p><%= form.password_field :password %>
-    </div>
-
+  <div class="jumbotron col-md-5">
+    <p><%= form.label :email %></p>
+    <p><%= form.email_field :email %></p>
+    <p><%= form.label :password %></p>
+    <p><%= form.password_field :password %></p>
     <div>
-      <%= form.submit "Sign in" %>
+      <%= form.submit "Sign in", class: "btn btn-primary btn-lg" %>
+      <h4>Don't have an account? <strong><%= link_to "Sign Up", [:new, :user] %></strong></h4>
     </div>
   </div>
 <% end %>
