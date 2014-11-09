@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index] do
       resource :following_relationships, only: [:create, :destroy]
     end
-    resources :shouts, only: :show
+
+    resources :shouts, only: :show do
+      resource :spam, only: :create
+    end
+
     resources :text_shouts, only: [:create, :edit, :update, :destroy]
     resources :photo_shouts, only: [:create, :edit, :update, :destroy]
     resources :hashtags, only: :show

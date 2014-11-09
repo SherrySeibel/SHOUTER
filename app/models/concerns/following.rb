@@ -25,7 +25,7 @@ module Following
     followed_user_ids.include? other_user.id
   end
 
-  def owns?(shout)
+  def owns? shout
     shout.user_id == id
   end
 
