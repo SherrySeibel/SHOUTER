@@ -5,17 +5,19 @@
     </div>
     <strong><%= link_to shout.user.username, shout.user %></strong>
     <%= link_to time_ago_in_words(shout.created_at), shout %>
-  <p> <%= render shout.content %> </p>
+    <p> <%= render shout.content %> </p>
 
-  <% if current_user.owns? shout %>
-    <%= link_to "Edit", edit_polymorphic_path(shout.content) %> |
-    <%= link_to "Delete", shout.content, method: :delete %>
-  <% else %>
-    <%= link_to "Report", shout_spam_path(shout), method: :post %>
-  <% end %>
+    <% if current_user.owns? shout %>
+      <%= link_to "Edit", edit_polymorphic_path(shout.content) %> |
+      <%= link_to "Delete", shout.content, method: :delete %>
+    <% elsif shout.spam? %>
+      This shout has been reported and is under review
+    <% else %>
+      <%= link_to "Report", shout_spam_path(shout), method: :post %>
+    <% end %>
 
-  <% if shout.spam? %>
-    This shout has been reported and is under review
-  <% end %>
+    <% if current_user.try(:admin?) %>
+      | <%= link_to "Remove", shout.content, method: :delete %>
+    <% end %>
   </div>
 <% end %>
