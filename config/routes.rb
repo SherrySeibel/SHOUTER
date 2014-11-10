@@ -10,13 +10,14 @@ Rails.application.routes.draw do
       resource :following_relationships, only: [:create, :destroy]
     end
 
-    resources :shouts, only: :show do
-      resource :spam, only: :create
+    resources :shouts, only: [:show] do
+      resource :spam, only: [:create]
     end
 
+    resource :admin_options, only: [:show]
     resources :text_shouts, only: [:create, :edit, :update, :destroy]
     resources :photo_shouts, only: [:create, :edit, :update, :destroy]
-    resources :hashtags, only: :show
+    resources :hashtags, only: [:show]
   end
 
   root to: "sessions#new", via: :get
