@@ -4,7 +4,7 @@ class Timeline
   end
 
   def to_partial_path
-    "timelines/timeline"
+    "timelines/show"
   end
 
   def shouts

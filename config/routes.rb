@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
 
     resource :admin_options, only: [:show]
+    resource :timeline, only: [:show]
     resources :text_shouts, only: [:create, :edit, :update, :destroy]
     resources :photo_shouts, only: [:create, :edit, :update, :destroy]
     resources :hashtags, only: [:show]

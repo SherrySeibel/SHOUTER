@@ -14,8 +14,4 @@ class Home
   def all_shouts
     Shout.all
   end
-
-  def timeline
-    Timeline.new(@user)
-  end
 end
