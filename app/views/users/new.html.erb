@@ -1,24 +1,12 @@
 <%= form_for @user do |form| %>
-  <div>
+  <div class="jumbotron col-md-5">
     <%= render "errors", target: @user %>
-  </div>
-
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div>
-    <%= form.submit "Sign up" %>
+    <p><%= form.label :email %></p>
+    <p><%= form.email_field :email %></p>
+    <p><%= form.label :username %></p>
+    <p><%= form.text_field :username %></p>
+    <p><%= form.label :password %></p>
+    <p><%= form.password_field :password %></p>
+    <%= form.submit "Sign up", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
