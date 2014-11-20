@@ -7,7 +7,7 @@
     <%= link_to time_ago_in_words(shout.created_at), shout %>
     <p> <%= render shout.content %> </p>
 
-    <% if current_user.owns? shout %>
+    <% if current_user.owns?(shout) %>
       <%= link_to "Edit", edit_polymorphic_path(shout.content) %> |
       <%= link_to "Delete", shout.content, method: :delete %>
     <% elsif shout.spam? %>

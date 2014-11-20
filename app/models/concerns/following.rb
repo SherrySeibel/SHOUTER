@@ -13,23 +13,23 @@ module Following
     has_many :followers, through: :follower_relationships
   end
 
-  def follow other_user
+  def follow(other_user)
     followed_users << other_user
   end
 
-  def unfollow other_user
+  def unfollow(other_user)
     followed_users.destroy(other_user)
   end
 
-  def following? other_user
+  def following?(other_user)
     followed_user_ids.include? other_user.id
   end
 
-  def owns? shout
-    shout.user_id == id
+  def can_follow?(other_user)
+    self != other_user
   end
 
-  def can_follow? other_user
-    self != other_user
+  def owns?(shout)
+    shout.user_id == id
   end
 end

@@ -11,12 +11,12 @@ class Shout < ActiveRecord::Base
     self[:body] = new_body.upcase
   end
 
-  def self.search term
+  def self.search(term)
     text_shouts = TextShout.where("body ILIKE ?", "%#{term}%")
     where(content_type: "TextShout", content_id: text_shouts)
   end
 
   def mark_as_spam
-    update_attribute :spam, true
+    update_attribute(:spam, true)
   end
 end
