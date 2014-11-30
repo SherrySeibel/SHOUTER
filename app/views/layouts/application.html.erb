@@ -7,27 +7,41 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> </button>
+          <%= image_tag "shouter_logo.png", class: "navbar-brand" %>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path %></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to "Admin", admin_options_path %></li>
+            <% end %>
+
+            <% if signed_in? %>
+              <li><%= link_to "My Timeline", timeline_path %></li>
+              <li><%= link_to "Sign Out", session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Register", [:new, :user] %></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <%= yield %>
 
     <div class="container">
       <% if alert %>
         <p><%= alert %></p>
       <% end %>
-
-      <h1><%= link_to(image_tag("shouter_logo.png"), root_path) %></h1>
-
-      <div>
-        <% if signed_in? %>
-          You are currently signed in as <%= current_user.username %>.
-        <%= link_to "Sign out?", session_path, method: :delete %>
-        <%= link_to current_user.username, timeline_path %>
-        <% end %>
-
-        <% if current_user.try(:admin?) %>
-          <%= link_to "Admin", admin_options_path %>
-        <% end %>
-        </div>
-      <%= yield %>
-    </div>
-
   </body>
 </html>
