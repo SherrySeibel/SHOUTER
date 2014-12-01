@@ -1,7 +1,7 @@
-<% if @user.errors.any? %>
-  <%= pluralize(@user.errors.count, "error") %> prevented the form from submitting:
+<% if target.errors.any? %>
+  <%= pluralize(target.errors.count, "error") %> prevented the form from submitting:
   <ul>
-    <% @user.errors.full_messages.each do |error_message| %>
+    <% target.errors.full_messages.each do |error_message| %>
       <li><%= error_message %></li>
     <% end %>
   </ul>
