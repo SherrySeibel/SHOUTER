@@ -1,6 +1,6 @@
 <%= form_for @user do |form| %>
-  <div class="col-md-12 col-md-offset-4">
-    <div class="jumbotron col-md-4">
+  <div class="col-md-3 col-md-offset-7">
+    <div class="jumbotron col-md-2">
       <%= render "errors", target: @user %>
       <p><%= form.label :email %></p>
       <p><%= form.email_field :email %></p>
@@ -12,3 +12,5 @@
     </div>
   </div>
 <% end %>
+
+<div class="megaphone"><%= image_tag "sessions_background_megaphone.png" %></div>
