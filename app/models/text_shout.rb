@@ -3,7 +3,9 @@ class TextShout < ActiveRecord::Base
 
   has_one :shout, as: :content, dependent: :destroy
 
-  def body=(new_body)
-    self[:body] = new_body.upcase
+  before_save :upcase_body
+
+  def upcase_body
+    self.body = self.body.upcase
   end
 end
