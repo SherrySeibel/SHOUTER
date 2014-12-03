@@ -10,6 +10,7 @@ gem "jbuilder", "~> 2.0"
 gem "monban"
 gem "monban-generators"
 gem "paperclip"
+gem "spring"
 
 group :doc do
   gem "sdoc", "~> 0.4.0"
@@ -19,6 +20,9 @@ group :development, :test do
   gem "rspec-rails", "~> 3.0.1"
   gem "factory_girl_rails"
   gem "capybara", "~> 2.3.0"
+  gem "shoulda"
+  gem "shoulda-matchers", require: false
+
   gem "pry-rails"
   gem "launchy"
 end
