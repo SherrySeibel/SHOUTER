@@ -6,6 +6,6 @@ class TextShout < ActiveRecord::Base
   before_save :upcase_body
 
   def upcase_body
-    self.body = self.body.upcase
+    self.body = body.upcase
   end
 end
