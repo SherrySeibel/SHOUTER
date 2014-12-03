@@ -1,5 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
-# RSpec.describe TextShout, :type => :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+RSpec.describe TextShout, type: :model do
+  it { should validate_presence_of(:body) }
+  it { should_not allow_value("", nil).for(:body) }
+
+  it { should have_one(:shout).dependent(:destroy) }
+
+  describe "#upcase_body" do
+    it "Forces the text to be all capital letters" do
+      text_shout = TextShout.create(body: "hello")
+
+      expect(text_shout.body).to eq "HELLO"
+    end
+  end
+end
