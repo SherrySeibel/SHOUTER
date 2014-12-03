@@ -6,7 +6,7 @@ feature "User submits a text shout" do
   end
 
   scenario "with content" do
-    fill_in "Shout something!", with: "HI!"
+    fill_in "Shout something!", with: "hi!"
     click_on "SHOUT!"
 
     expect(page).to have_content "HI!"
