@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :following_relationship, :class => 'FollowingRelationships' do
-    folllowed_user nil
+    followed_user nil
     follower nil
   end
   factory :photo_shout do
