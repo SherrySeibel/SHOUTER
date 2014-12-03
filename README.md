@@ -58,6 +58,54 @@ end
 
 SHOUTER uses RSpec, Capybara, and FactoryGirl.
 
+Here is an example of a test I did for the TextShout model:
+
+```ruby
+require "rails_helper"
+
+RSpec.describe TextShout, type: :model do
+  it { should validate_presence_of(:body) }
+  it { should_not allow_value("", nil).for(:body) }
+
+  it { should have_one(:shout).dependent(:destroy) }
+
+  describe "#upcase_body" do
+    it "Forces the text to be all capital letters" do
+      text_shout = TextShout.create(body: "hello")
+
+      expect(text_shout.body).to eq "HELLO"
+    end
+  end
+end
+```
+
+Here's the test I did for the corresponding view:
+
+```ruby
+require "rails_helper"
+
+feature "User submits a text shout" do
+  before :each do
+    when_signed_in
+  end
+
+  scenario "with content" do
+    fill_in "Shout something!", with: "hi!"
+    click_on "SHOUT!"
+
+    expect(page).to have_content "HI!"
+    expect(page).to have_css ".shout, #shout_1"
+  end
+
+  scenario "without content and sees a flash notice" do
+    fill_in "Shout something!", with: ""
+    click_on "SHOUT!"
+
+    expect(page).to have_content "Nothing was shouted"
+  end
+end
+```
+
 #CODE FEATURES
 
 SHOUTER incorporates polymorphism, self-join tables, and searching using regular expressions.
