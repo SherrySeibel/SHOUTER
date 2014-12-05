@@ -36,6 +36,6 @@ class PhotoShoutsController < ApplicationController
   def photo_shout_params
     params.require(:photo_shout).permit(
       :image,
-    )
+    ) if params[:image]
   end
 end
