@@ -7,6 +7,7 @@
     <div>
       <%= form.submit "Sign in", class: "btn btn-primary btn-lg" %>
       <h4>Don't have an account? <strong><%= link_to "Register", [:new, :user] %></strong></h4>
+      <h4><strong><%= link_to "I forgot my password", new_password_reset_path %> </strong></h4>
     </div>
   </div>
 <% end %>
